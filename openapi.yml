@@ -1,0 +1,48 @@
+openapi: 3.0.3
+info:
+  title: Open Api Validator
+  version: 0.0.1
+paths:
+  /hello:
+    get:
+      responses:
+        200:
+          description: Response body should contain a string
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Hello World
+    post:
+      responses:
+        202:
+          description: Accepted
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Accepted
+  /customcode:
+    get:
+      responses:
+        418:
+          description: Response code I'm a teapot
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: I'm a teapot
+  /object:
+    get:
+      responses:
+        200:
+          description: Response code I'm a teapot
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - propertyShouldExist
+                properties:
+                  propertyShouldExist:
+                    type: boolean
